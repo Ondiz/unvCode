@@ -33,7 +33,7 @@ fprintf(fid,'%6i%74s\n',-1,' '); % 80 caracteres en total, -1 en los 6 primeros
 fprintf(fid,'%6i%74s\n',15,' ');
 
 % Escribir matriz
-fprintf(fid, '%10i%10i%10i%10i%13.4e%13.4e%13.4e\n', datos');
+fprintf(fid, '%10i%10i%10i%10i%13.5e%13.5e%13.5e\n', datos');
 
 % Última línea: -1
 fprintf(fid,'%6i%74s\n',-1,' ');

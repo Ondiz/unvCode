@@ -90,7 +90,7 @@ fprintf(fid,'%-80s\n','NONE');
 
 fprintf(fid,'%10i%10i%10i%10i%10i%10i\n',1,3,2,8,5,3); % para caso típico de modos complejos
 
-formato = '%13.4e'; % formato de los números E13.5 (usa 17 dígitos por tema de Windows)
+formato = '%13.5e'; % formato de los números E13.5 
 
 % Modos complejos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
