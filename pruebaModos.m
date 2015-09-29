@@ -12,4 +12,4 @@ unvWriter(puntos,'geomModos')
 datos = zeros(numNodos, 6);
 datos(:,3) = sin(puntos(:,1));
 
-modosUnv(numeroModo, f, xi, numNodos,datos,'modoComplejo', 'a')
+modosUnv(numeroModo, f, xi, numNodos,datos,'modoComplejo')

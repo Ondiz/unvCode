@@ -1,4 +1,4 @@
-function modosUnv(numeroModo, f, xi, numNodos, datos, nombreArchivo, opcion)
+function modosUnv(numeroModo, f, xi, numNodos, datos, nombreArchivo)
 
 % Escribe un modo en un unv (tipo de dato 55).
 % Datos:
@@ -9,8 +9,6 @@ function modosUnv(numeroModo, f, xi, numNodos, datos, nombreArchivo, opcion)
 % datos: matriz de 6 columnas Re(x), Im(x), Re(y), Im(y), Re(z), Im(z)
 % desplazamiento del modo en cada nodo (con el mismo orden de numNodos)
 % nombreArchivo: nombre del archivo sin la extensión unv
-% opcion: 'w' para crear el archivo y 'a' para añadir modo a un archivo
-% existente
 
 % Datos
 
@@ -19,7 +17,7 @@ eig = -xi*omega + sqrt(1-xi^2)*omega*i;
 nodos = 1:numNodos;
 
 % Archivo donde escrbir
-fid = fopen([nombreArchivo '.unv'], opcion); % poner opción 'a' para append y 'w' para crear
+fid = fopen([nombreArchivo '.unv'], 'a'); % 'a' para append 
 
 % Primera línea: -1
 fprintf(fid,'%6i%74s\n',-1,' '); % líneas de 80 caracteres donde -1 ocupa los 6 primeros
