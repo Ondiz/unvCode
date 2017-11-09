@@ -1,19 +1,24 @@
 function modosUnv(numeroModo, f, xi, numNodos, datos, nombreArchivo)
 
-% Escribe un modo en un unv (tipo de dato 55).
+% Escribe un modo en un archivo universal unv (tipo de dato 55).
+%
+% MODOSUNV(numeroModo, f, xi, numNodos, datos, nombreArchivo)
+%
 % Datos:
-% numeroModo: número del modo
-% f: frecuencia en Hz
-% xi: amortiguamiento en tanto por 1
-% numNodos: número de nodos del sistema
-% datos: matriz de 6 columnas Re(x), Im(x), Re(y), Im(y), Re(z), Im(z)
-% desplazamiento del modo en cada nodo (con el mismo orden de numNodos)
-% nombreArchivo: nombre del archivo sin la extensión unv
+% - numeroModo: número del modo
+% - f: frecuencia en Hz
+% - xi: amortiguamiento en tanto por 1
+% - numNodos: número de nodos del sistema
+% - datos: matriz de 6 columnas Re(x), Im(x), Re(y), Im(y), Re(z), Im(z)
+%          desplazamiento del modo en cada nodo (con el mismo orden de numNodos)
+% - nombreArchivo: nombre del archivo sin la extensión
+%
+% Definición en http://www.sdrl.uc.edu/sdrl/referenceinfo/universalfileformats/file-format-storehouse/universal-dataset-number-55
 
 % Datos
 
 omega = 2*pi*f;
-eig = -xi*omega + sqrt(1-xi^2)*omega*i;
+eig = -xi*omega + sqrt(1-xi^2)*omega*1i;
 nodos = 1:numNodos;
 
 % Archivo donde escrbir
@@ -109,7 +114,7 @@ fprintf(fid,[formato formato formato formato formato formato '\n'],real(eig),ima
 % Para cada nodo escribe línea con número de nodo, salta línea y escribe
 % valores Re(x), Im(x), Re(y), Im(y), Re(z), Im(z). 
 
-for k = 1:length(nodos);
+for k = 1:length(nodos)
     fprintf(fid,'%10i\n',nodos(k)); % escribe número de nodo y salta línea
     fprintf(fid,[formato formato formato formato formato formato '\n'], datos(k,:)); 
 end
